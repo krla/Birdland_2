@@ -21,8 +21,11 @@ export function createLinkedList(value: string) : LinkedList {
 
 // insert a new node after a node in a linked list
 export function insertAfter(node: Node, value: string) : Node {
-let newNode : Node = { value, next:null }
-  if (node) {
+  let newNode : Node = { value, next: node.next }
+
+  if (!node.next) {
+    node.next = newNode
+  } else if (node.next) {
     node.next = newNode
   }
   return newNode
@@ -65,6 +68,8 @@ export function findNode(linkedList: LinkedList, value: string) : Node {
   }
   if (nodeToFind.value == value)
   return nodeToFind
+  if (nodeToFind.value !== value)
+  return null
 }
 
 export function removeAfter(linkedList: LinkedList, node: Node): Node {
