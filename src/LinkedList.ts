@@ -16,11 +16,13 @@ export function createNode(value: string) : Node {
 
 // create a new linked list
 export function createLinkedList(value: string) : LinkedList {
+  return { head: { value, next: null } }
   
 }
 
 // insert a new node after a node in a linked list
 export function insertAfter(node: Node, value: string) : Node {
+  let newNode = { value, next:null }
   
 }
 

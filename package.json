@@ -5,22 +5,22 @@
   "author": "Guillaume Gomez <guillaume.gomez846@gmail.com>",
   "license": "MIT",
   "dependencies": {
-    "@types/enzyme": "^3.10.3",
-    "@types/jest": "^24.0.19",
-    "@types/node": "^12.11.1",
-    "@types/react": "^16.9.9",
-    "@types/react-dom": "^16.9.2",
-    "enzyme": "^3.10.0",
-    "enzyme-adapter-react-16": "^1.15.1",
+    "@types/enzyme": "^3.10.6",
+    "@types/jest": "^24.9.1",
+    "@types/node": "^12.12.56",
+    "@types/react": "^16.9.49",
+    "@types/react-dom": "^16.9.8",
+    "enzyme": "^3.11.0",
+    "enzyme-adapter-react-16": "^1.15.4",
     "jest": "^24.9.0",
-    "react": "^16.10.2",
-    "react-dom": "^16.10.2",
-    "react-test-renderer": "^16.10.2",
+    "react": "^16.13.1",
+    "react-dom": "^16.13.1",
+    "react-test-renderer": "^16.13.1",
     "source-map-loader": "^0.2.4",
-    "ts-loader": "^6.2.0",
-    "typescript": "^3.6.4",
-    "webpack": "^4.41.2",
-    "webpack-cli": "^3.3.9"
+    "ts-loader": "^6.2.2",
+    "typescript": "^3.9.7",
+    "webpack": "^4.44.1",
+    "webpack-cli": "^3.3.12"
   },
   "jest": {
     "setupFiles": [
@@ -38,5 +38,8 @@
     "testMatch": [
       "**/__tests__/*.(ts|tsx|js)"
     ]
+  },
+  "scripts": {
+    "test": "jest"
   }
 }
