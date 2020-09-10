@@ -22,8 +22,11 @@ export function createLinkedList(value: string) : LinkedList {
 
 // insert a new node after a node in a linked list
 export function insertAfter(node: Node, value: string) : Node {
-  let newNode = { value, next:null }
-  
+  let newNode : Node = { value, next:null }
+  if (node) {
+    node.next = newNode
+  }
+  return newNode
 }
 
 // insert after tail
