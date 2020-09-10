@@ -16,13 +16,12 @@ export function createNode(value: string) : Node {
 
 // create a new linked list
 export function createLinkedList(value: string) : LinkedList {
-  return { head: { value, next: null } }
-  
+  return { head: { value, next: null } } 
 }
 
 // insert a new node after a node in a linked list
 export function insertAfter(node: Node, value: string) : Node {
-  let newNode : Node = { value, next:null }
+let newNode : Node = { value, next:null }
   if (node) {
     node.next = newNode
   }
@@ -49,19 +48,37 @@ export function length(linkedList: LinkedList) : number {
 }
 
 export function tail(linkedList: LinkedList) : Node {
- 
+  if (linkedList.head.next == null) {
+    return linkedList.head
+  }
+  let node = linkedList.head.next
+  while (node.next) {
+    node = node.next
+  }
+  return node
 }
 
 export function findNode(linkedList: LinkedList, value: string) : Node {
-  
+  let nodeToFind = linkedList.head
+  while (nodeToFind.next) {
+    nodeToFind = nodeToFind.next
+  }
+  if (nodeToFind.value == value)
+  return nodeToFind
 }
 
 export function removeAfter(linkedList: LinkedList, node: Node): Node {
-  
+  let temp = node.next
+  node.next = node.next.next
+  temp.next = null
+  return temp
 }
 
 export function removeHead(linkedList: LinkedList) : Node {
- 
+  let temp = linkedList.head
+  linkedList.head = linkedList.head.next
+  temp.next = null
+  return temp
 }
 
 export function forEach(linkedList: LinkedList, callback: (value: string, index: number) => void) : void {
