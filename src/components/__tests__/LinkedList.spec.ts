@@ -132,6 +132,7 @@ it("find values in a manipulated linked list", () => {
   const thirdNode = append(linkedList, "third node");
   
   const node = findNode(linkedList, "second node");
+  debugger
   expect(node.value).toBe("second node");
 
   const deletedNode = removeHead(linkedList);

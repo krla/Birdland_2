@@ -62,13 +62,13 @@ export function tail(linkedList: LinkedList) : Node {
 }
 
 export function findNode(linkedList: LinkedList, value: string) : Node {
-  let nodeToFind = linkedList.head
-  while (nodeToFind.next) {
-    nodeToFind = nodeToFind.next
+  let iterator = linkedList.head
+  while (iterator) {
+    if (iterator.value == value) {
+      return iterator
+    }
+    iterator = iterator.next
   }
-  if (nodeToFind.value == value)
-  return nodeToFind
-  if (nodeToFind.value !== value)
   return null
 }
 
@@ -87,8 +87,14 @@ export function removeHead(linkedList: LinkedList) : Node {
 }
 
 export function forEach(linkedList: LinkedList, callback: (value: string, index: number) => void) : void {
-
+  const size = length(linkedList)
+  let node = linkedList.head
+  for (let i = 0; i < size; i++) {
+      callback(node.value, i, linkedList);
+      node = node.next;
+    }
 }
+
 
 export function print(linkedList: LinkedList) : string {
   let results : string[] = [];
@@ -98,7 +104,13 @@ export function print(linkedList: LinkedList) : string {
 
 
 export function toMap(linkedList: LinkedList) : Node[] {
-  
+  let results : Node[] = []
+  let iterator = linkedList.head
+  while (iterator) {
+    results.push(iterator)
+    iterator = iterator.next
+  }
+  return results
 }
 
 export function updateNode(node: Node, value: string) : Node {
