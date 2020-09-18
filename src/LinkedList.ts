@@ -33,11 +33,17 @@ export function insertAfter(node: Node, value: string) : Node {
 
 // insert after tail
 export function append(linkedList: LinkedList, value: string) : Node {
+  if (!linkedList.head) {
+    return null
+  }
   let tailLinkedList: Node = tail(linkedList);
   return insertAfter(tailLinkedList, value);
 }
 
 export function length(linkedList: LinkedList) : number {
+  if (!linkedList.head) {
+    return 0
+  }
   if(linkedList.head === null) {
     return 0;
   };
@@ -51,6 +57,9 @@ export function length(linkedList: LinkedList) : number {
 }
 
 export function tail(linkedList: LinkedList) : Node {
+  if (!linkedList.head) {
+    return null
+  }
   if (linkedList.head.next == null) {
     return linkedList.head
   }
@@ -62,6 +71,9 @@ export function tail(linkedList: LinkedList) : Node {
 }
 
 export function findNode(linkedList: LinkedList, value: string) : Node {
+  if (!linkedList.head) {
+    return null
+  }
   let iterator = linkedList.head
   while (iterator) {
     if (iterator.value == value) {
@@ -73,6 +85,9 @@ export function findNode(linkedList: LinkedList, value: string) : Node {
 }
 
 export function removeAfter(linkedList: LinkedList, node: Node): Node {
+  if (!linkedList.head) {
+    return null
+  }
   let temp = node.next
   node.next = node.next.next
   temp.next = null
@@ -80,6 +95,9 @@ export function removeAfter(linkedList: LinkedList, node: Node): Node {
 }
 
 export function removeHead(linkedList: LinkedList) : Node {
+  if (!linkedList.head) {
+    return null
+  }
   let temp = linkedList.head
   linkedList.head = linkedList.head.next
   temp.next = null
@@ -87,16 +105,22 @@ export function removeHead(linkedList: LinkedList) : Node {
 }
 
 export function forEach(linkedList: LinkedList, callback: (value: string, index: number) => void) : void {
+  if (!linkedList.head) {
+    return null
+  }
   const size = length(linkedList)
   let node = linkedList.head
   for (let i = 0; i < size; i++) {
-      callback(node.value, i, linkedList);
+      callback(node.value, i);
       node = node.next;
     }
 }
 
 
 export function print(linkedList: LinkedList) : string {
+  if (!linkedList.head) {
+    return null
+  }
   let results : string[] = [];
   forEach(linkedList, (value) => { results.push(value) } );
   return results.join(", ");
@@ -104,6 +128,9 @@ export function print(linkedList: LinkedList) : string {
 
 
 export function toMap(linkedList: LinkedList) : Node[] {
+  if (!linkedList.head) {
+    return null
+  }
   let results : Node[] = []
   let iterator = linkedList.head
   while (iterator) {
